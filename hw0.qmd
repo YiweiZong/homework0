@@ -1,0 +1,54 @@
+---
+title: "BST 260 Homework 0"
+format: html
+---
+
+In this homework, we write a Quarto document that generates an html with the solutions to $f(x) = ax^2+bx+c=0$ for $a=1, b=3, c=2$. And then we include a plot confirming the result.
+
+First, we solve the equation $f(x) = ax^2+bx+c=0$  for $a=1, b=3, c=2$. The result shows below:
+a = 1
+b = 3
+c = 2
+```{r}
+#| echo: false
+a = 1
+b = 3
+c = 2
+
+Delta = b^2 - 4*a*c
+x1 <- (-b + sqrt(Delta)) / (2*a)
+x2 <- (-b - sqrt(Delta)) / (2*a)
+data.frame(Solution1 = x1, Solution2 = x2)
+```
+
+Then we get a plot and show the solutions. We include a graph of $f(x)$ versus $x$ for $x \in (-5,5)$. If we have two solutions, our plot will show these two solutions($x1$, and $x2$). If we have one solution, our plot will show this solution($x1=x2$). If we have zero solution(no solution), our plot will not show the solution.
+
+```{r}
+#| echo: false
+
+
+a = 1
+b = 3
+c = 2
+
+
+x <- seq(-5, 5, length = 300)
+
+plot(x, a*x^2+b*x+c, type = "l", xlab = "x", ylab = "f(x)")
+
+abline(h=0, lty=2)
+
+if(Delta == 0){
+  abline(v=x1, lty=2)
+  text(x1, 0, labels = "x1=x2", pos = 3.5)
+} else if(Delta > 0){
+  abline(v=x1, lty=2)
+  abline(v=x2, lty=2)
+  text(x1, 0, labels = "x1", pos = 3.5)
+  text(x2, 0, labels = "x2", pos = 3.5)
+}
+
+```
+
+As showed in the above plot, we see that there are two different solutions($x1=-1$, and $x2=-2$).
+
