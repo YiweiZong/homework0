@@ -5,10 +5,8 @@ format: html
 
 In this homework, we write a Quarto document that generates an html with the solutions to $f(x) = ax^2+bx+c=0$ for $a=1, b=3, c=2$. And then we include a plot confirming the result.
 
-First, we solve the equation $f(x) = ax^2+bx+c=0$  for $a=1, b=3, c=2$. The result shows below:
-a = 1
-b = 3
-c = 2
+First, we solve the equation $f(x) = ax^2+bx+c=0$ for $a=1, b=3, c=2$. The result shows below:
+
 ```{r}
 #| echo: false
 a = 1
@@ -51,4 +49,3 @@ if(Delta == 0){
 ```
 
 As showed in the above plot, we see that there are two different solutions($x1=-1$, and $x2=-2$).
-
