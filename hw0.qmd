@@ -28,7 +28,7 @@ if (Delta < 0) {
 }
 ```
 
-Then we get a plot and show the solutions. We include a graph of $f(x)$ versus $x$ for $x \in (-5,5)$. If we have two solutions, our plot will show these two solutions ($x1$, and $x2$). If we have one solution, our plot will show this solution ($x1=x2$). If we have zero solution (no solution, or have complex solutions), our plot will not show the solution.
+Then we get a plot and show the solutions. We include a graph of $f(x) = ax^2+bx+c=0$ versus $x$ for $x \in (-5,5)$. If we have two solutions, our plot will show these two solutions ($x1$, and $x2$). If we have one solution (two real repeated solutions), our plot will show this solution ($x1=x2$). If we have zero solution (no solution, or have complex solutions), our plot will not show the solution.
 
 ```{r}
 #| echo: false
