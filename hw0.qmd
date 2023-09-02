@@ -5,7 +5,7 @@ format: html
 
 In this homework, we write a Quarto document that generates an html with the solutions to $f(x) = ax^2+bx+c=0$ for $a=1, b=3, c=2$. And then we include a plot confirming the result.
 
-First, we solve the equation $f(x) = ax^2+bx+c=0$ for $a=1, b=3, c=2$. The result shows below:
+First, we solve the equation $f(x) = ax^2+bx+c=0$ for $a=1, b=3, c=2$. We use discriminant to determine the types of the roots (two real distinct solutions, two real repeated solutions, or have complex solutions). The result shows below:
 
 ```{r}
 #| echo: false
@@ -14,12 +14,21 @@ b = 3
 c = 2
 
 Delta = b^2 - 4*a*c
-x1 <- (-b + sqrt(Delta)) / (2*a)
-x2 <- (-b - sqrt(Delta)) / (2*a)
-data.frame(Solution1 = x1, Solution2 = x2)
+
+if (Delta < 0) {
+  cat("This equation has complex solutions")
+}else if (Delta == 0) {
+  x1 = -b / (2*a)
+  x2 = -b / (2*a)
+  cat("This equation has two real repeated root(x1=x2):", x1)
+} else {
+  x1 = (-b + sqrt(Delta)) / (2*a)
+  x2 = (-b - sqrt(Delta)) / (2*a)
+  cat("This equation has two distinct real roots:", x1, "and ", x2, ".")
+}
 ```
 
-Then we get a plot and show the solutions. We include a graph of $f(x)$ versus $x$ for $x \in (-5,5)$. If we have two solutions, our plot will show these two solutions($x1$, and $x2$). If we have one solution, our plot will show this solution($x1=x2$). If we have zero solution(no solution), our plot will not show the solution.
+Then we get a plot and show the solutions. We include a graph of $f(x)$ versus $x$ for $x \in (-5,5)$. If we have two solutions, our plot will show these two solutions ($x1$, and $x2$). If we have one solution, our plot will show this solution ($x1=x2$). If we have zero solution (no solution, or have complex solutions), our plot will not show the solution.
 
 ```{r}
 #| echo: false
@@ -30,7 +39,7 @@ b = 3
 c = 2
 
 
-x <- seq(-5, 5, length = 300)
+x = seq(-5, 5, length = 300)
 
 plot(x, a*x^2+b*x+c, type = "l", xlab = "x", ylab = "f(x)")
 
@@ -48,4 +57,4 @@ if(Delta == 0){
 
 ```
 
-As showed in the above plot, we see that there are two different solutions($x1=-1$, and $x2=-2$).
+As showed in the above plot, we see that there are two different solutions ($x1=-1$, and $x2=-2$).
